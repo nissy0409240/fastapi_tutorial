@@ -30,3 +30,9 @@ async def create_item(item_id: int, item: Item, q: Optional[str] = None):
         result.update({"q": q})
     return result
 
+
+@app.delete("/items/{item_id}")
+async def delete_item(item_id: int, item: Item):
+    result = {"item_id": item_id, **item.dict()}
+    return result
+
